@@ -41,9 +41,10 @@ module.exports = {
     let password = params.password
     let res = await HomeService.register(name, password)
 
-    
+  
     if (ctx.cookies.get('isVisit')) {
-      console.log("再次欢迎访问");
+      console.log("欢迎再次访问",ctx.cookies.get('isVisit'));
+      console.log(ctx.cookies)
     } else {
       ctx.cookies.set('isVisit', 1, {
         domain: 'localhost',  // 写cookie所在的域名
